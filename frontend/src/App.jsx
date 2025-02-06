@@ -32,7 +32,7 @@ function App() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "https://transaction-dashboard-526q.vercel.app/api/transactions",
+          "https://transaction-dashboard-rjys.onrender.com/api/transactions",
           {
             params: { month, search, page: currentPage },
           }
