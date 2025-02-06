@@ -1,5 +1,20 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
+const allowedOrigins = ["https://transaction-dashboard-1yw3.vercel.app"];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+  })
+);
 
 const transactionRoute = require("./routes/transactionsRoutes.js");
 

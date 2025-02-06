@@ -31,9 +31,12 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/transactions", {
-          params: { month, search, page: currentPage },
-        });
+        const res = await axios.get(
+          "https://transaction-dashboard-526q.vercel.app/api/transactions",
+          {
+            params: { month, search, page: currentPage },
+          }
+        );
         setTransactions(res.data.transactions);
         setStats(res.data.stats);
         setTotalPages(res.data.totalPages);
